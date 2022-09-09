@@ -66,6 +66,7 @@ function AddLesson() {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit1 = async (fData) => {
+        // debugger
         if ((picture === null)) {
             Swal.fire({
                 title: 'Files are missing',
@@ -75,6 +76,9 @@ function AddLesson() {
         } else {
             setLoder(true)
 
+            videoData.map((x, y) => {
+               return x.videoNumber = ++y
+            })
             const data = {
                 FilePath: "",
                 LessonName: fData.LessonName,

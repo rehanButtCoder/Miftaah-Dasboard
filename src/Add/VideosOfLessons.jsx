@@ -23,7 +23,6 @@ function VideosOfLessons({ vdata, setVData }) {
     const [pdfData, setPdfData] = useState()
 
     const onSubmit = (data) => {
-        // debugger
         const v = [...vdata];
         v.push({
             id: uuid(),
@@ -31,6 +30,7 @@ function VideosOfLessons({ vdata, setVData }) {
             FilePath: imgData,
             picture: picture,
             NoteLink: data.pdfUrl,
+            videoNumber: ""
             // NoteLinkDel: sendPdf
         })
         setVData(v);

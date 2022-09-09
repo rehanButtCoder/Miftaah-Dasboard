@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import { login } from '../Services/Authentication';
 import { useEffect } from "react";
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 function Login() {
 
@@ -16,9 +17,12 @@ function Login() {
         }
     }, [])
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
 
+    // loder
+    const [loder, setLoder] = useState(false)
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = async (fdata) => {
+        setLoder(true);
         const resp = await login(fdata)
 
         if (resp.data.code === 1) {
@@ -34,6 +38,7 @@ function Login() {
                 icon: 'error',
                 showConfirmButton: false,
             })
+            setLoder(false)
         }
     }
 
@@ -63,7 +68,15 @@ function Login() {
                         <input {...register("Password", { required: true })} className='inputField' type="password" />
                         {errors.Password && <span className='eror'>Password is required</span>}
                     </div>
-                    <input className="login-button" type="submit" value='SIGN IN' />
+                    {
+                        (loder >= true) ?
+                            <div className="relative">
+                                <div className="loader alignLoader loginLoder"></div>
+                                <input className="login-button" type="submit" value='SIGN IN' disabled />
+                            </div>
+                            :
+                            <input className="login-button" type="submit" value='SIGN IN' />
+                    }
                     <div className="login-forgot">
                         <Link to="/forget-pass" >Forgot Password?</Link>
                     </div>

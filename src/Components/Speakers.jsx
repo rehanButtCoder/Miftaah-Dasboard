@@ -134,6 +134,7 @@ function Speakers() {
     },
   };
 
+
   const [speakersData, setSpeakersData] = useState([]);
 
   const getSpeakers = async () => {
@@ -149,6 +150,13 @@ function Speakers() {
   }, [loafer])
 
   // search
+
+
+
+
+
+
+
 
   const searchFunc = async(e) => {
     const resp = await get(e);

@@ -1139,3 +1139,16 @@ nav {
     width: 21%;
   }
 }
+
+.loader.alignLoader.loginLoder {
+  top: 50px;
+  left: 32%;
+  width: 20px;
+  height: 20px;
+}
+.sc-llYSUQ.fQmYxz {
+    display: none !important;
+}
+.sc-llYSUQ.dqzAlz {
+  display: none !important;
+}
